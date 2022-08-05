@@ -16,9 +16,8 @@ auth = RequestsSrpAuth(
     user_pool_region=os.getenv("USER_POOL_REGION"),
 )
 
-end_point = os.getenv("ORION_ENDPOINT")
-response = requests.get(end_point + "/version", auth=auth)
+orion_endpoint = os.getenv("ORION_ENDPOINT")
 
-
+response = requests.get(orion_endpoint + "/version", auth=auth)
 str_json = json.dumps(response.json(), indent=4)
 print(str_json)
